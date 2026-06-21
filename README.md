@@ -93,25 +93,6 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
 Get both from the Supabase dashboard (Settings → API). Then apply the schema by running
 `supabase/migrations/0001_init_profiles.sql` in the SQL Editor.
 
-## Authentication & Onboarding
-
-Product decisions for sign-in (vs. apps like Partiful):
-
-- **No phone/SMS OTP** — SMS/WhatsApp OTP is costly and unreliable in LATAM.
-- **SSO:** Google and Apple, plus **email magic link** as a free fallback. Apple Sign-In
-  is gated on an Apple Developer account (see [BACKLOG.md](./BACKLOG.md)).
-- **Instagram is not a sign-in option** — Meta deprecated the Instagram Basic Display
-  API (Dec 2024); the Meta path that remains is Facebook Login.
-- **Soft register:** name + optional photo, kept to a single low-friction screen. On
-  first Google login, name and avatar are pre-filled from the provider. No birthday
-  field — deferred until age-gated events need it.
-
-## Commit Conventions
-
-Commit messages are **plain sentences describing the change** — no type prefixes
-(`feat:`, `fix:`, `chore:`), no ticket names. The ticket name belongs in the **PR
-title**, not in commits. Keep PR descriptions to what changed and how to verify it.
-
 ```text
 Add Google sign-in and auth callback route
 Create profiles table with row-level security
